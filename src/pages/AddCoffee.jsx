@@ -1,6 +1,37 @@
 const AddCoffee = () => {
   const handleAddCoffeeForm = (e) => {
     e.preventDefault();
+
+    const name = e.target.name.value;
+    const quantity = e.target.quantity.value;
+    const supplier = e.target.supplier.value;
+    const taste = e.target.taste.value;
+    const category = e.target.category.value;
+    const details = e.target.details.value;
+    const photo = e.target.photo.value;
+
+    const newCoffee = {
+      name,
+      quantity,
+      supplier,
+      taste,
+      category,
+      details,
+      photo,
+    };
+    console.log(newCoffee);
+
+    fetch("http://localhost:5000/coffees", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
