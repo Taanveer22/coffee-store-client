@@ -1,9 +1,15 @@
 import Banner from "../components/Banner";
+import Marketing from "../components/Marketing";
 
 const Home = () => {
   return (
     <div>
-      <Banner></Banner>
+      <section>
+        <Banner></Banner>
+      </section>
+      <section>
+        <Marketing></Marketing>
+      </section>
     </div>
   );
 };

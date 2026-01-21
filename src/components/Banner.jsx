@@ -19,7 +19,7 @@ const Banner = () => {
               nostalgia back!! Your companion of every moment!!! Enjoy the
               beautiful moments and make them memorable.
             </p>
-            <button className="btn btn-warning">Learn More</button>
+            <button className="btn btn-warning cursive-font">Learn More</button>
           </div>
         </div>
       </div>

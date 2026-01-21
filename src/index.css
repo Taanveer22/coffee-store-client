@@ -7,6 +7,11 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-h1 {
+h1,
+h6 {
+  font-family: "Rancho", cursive;
+}
+
+.cursive-font {
   font-family: "Rancho", cursive;
 }
