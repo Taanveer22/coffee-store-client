@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const AddCoffee = () => {
   const handleAddCoffeeForm = (e) => {
     e.preventDefault();
@@ -19,7 +21,7 @@ const AddCoffee = () => {
       details,
       photo,
     };
-    console.log(newCoffee);
+    // console.log(newCoffee);
 
     fetch("http://localhost:5000/coffees", {
       method: "POST",
@@ -30,7 +32,10 @@ const AddCoffee = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
+        if (data.insertedId) {
+          toast.success("coffee added successfully");
+        }
       });
   };
 
