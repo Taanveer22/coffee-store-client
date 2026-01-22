@@ -23,6 +23,7 @@ const AddCoffee = () => {
     };
     // console.log(newCoffee);
 
+    // ==== send create operation data to backend =====
     fetch("http://localhost:5000/coffees", {
       method: "POST",
       headers: {
