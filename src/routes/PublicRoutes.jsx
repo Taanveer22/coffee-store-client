@@ -6,6 +6,8 @@ import AddCoffee from "../pages/AddCoffee";
 import Users from "../pages/Users";
 import UpdateCoffee from "../pages/UpdateCoffee";
 import DetailsCoffee from "../pages/DetailsCoffee";
+import SignIn from "../pages/SignIn";
+import Register from "../pages/Register";
 
 const PublicRoutes = createBrowserRouter([
   {
@@ -34,6 +36,11 @@ const PublicRoutes = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/coffees/${params.id}`),
       },
+      {
+        path: "/signIn",
+        element: <SignIn></SignIn>,
+      },
+      { path: "/register", element: <Register></Register> },
       {
         path: "/users",
         element: <Users></Users>,
