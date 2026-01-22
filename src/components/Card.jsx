@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Card = ({ item }) => {
+const Card = ({ item, stateCoffees, setStateCoffees }) => {
   // console.log(item);
 
   const handleDeleteCoffee = (id) => {
@@ -29,6 +29,10 @@ const Card = ({ item }) => {
                 text: "Your coffee has been deleted.",
                 icon: "success",
               });
+              const remainStateCoffees = stateCoffees.filter(
+                (element) => element._id !== id,
+              );
+              setStateCoffees(remainStateCoffees);
             }
           });
       }

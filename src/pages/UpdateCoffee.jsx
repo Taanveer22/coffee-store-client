@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UpdateCoffee = () => {
-
   const loadedOneCoffee = useLoaderData();
   // console.log(loadedOneCoffee);
 
@@ -34,7 +34,12 @@ const UpdateCoffee = () => {
       body: JSON.stringify(updatedCoffee),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          toast.success("coffee data has updated");
+        }
+      });
   };
 
   return (
