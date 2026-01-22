@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  
   const { registerUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegisterForm = (e) => {
     e.preventDefault();
@@ -17,10 +18,12 @@ const Register = () => {
     registerUser(email, password)
       .then((result) => {
         console.log(result.user);
-        const creationTime = result?.user?.metadata?.creationTime;
-        const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+        // navigate to home
+        navigate("/", { replace: true });
 
         // save new user info to backend
+        const creationTime = result?.user?.metadata?.creationTime;
+        const lastSignInTime = result?.user?.metadata?.lastSignInTime;
         const newUser = { name, email, creationTime, lastSignInTime };
         // console.log(newUser);
         fetch("http://localhost:5000/users", {
