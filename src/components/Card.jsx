@@ -64,9 +64,12 @@ const Card = ({ item, stateCoffees, setStateCoffees }) => {
 
         {/* Right: Actions */}
         <div className="flex flex-col gap-3">
-          <button className="w-9 h-9 rounded-md bg-[#d2b48c] flex items-center justify-center">
+          <Link
+            to={`/detailsCoffee/${item._id}`}
+            className="w-9 h-9 rounded-md bg-[#d2b48c] flex items-center justify-center"
+          >
             👁
-          </button>
+          </Link>
 
           <Link to={`/updateCoffee/${item._id}`}>
             <button className="w-9 h-9 rounded-md bg-[#3b3b3b] text-white flex items-center justify-center">
