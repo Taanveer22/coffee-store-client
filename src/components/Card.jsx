@@ -6,6 +6,7 @@ const Card = ({ item, stateCoffees, setStateCoffees }) => {
 
   const handleDeleteCoffee = (id) => {
     // console.log(id);
+    
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -71,10 +72,11 @@ const Card = ({ item, stateCoffees, setStateCoffees }) => {
             👁
           </Link>
 
-          <Link to={`/updateCoffee/${item._id}`}>
-            <button className="w-9 h-9 rounded-md bg-[#3b3b3b] text-white flex items-center justify-center">
-              ✏️
-            </button>
+          <Link
+            to={`/updateCoffee/${item._id}`}
+            className="w-9 h-9 rounded-md bg-[#3b3b3b] text-white flex items-center justify-center"
+          >
+            ✏️
           </Link>
 
           <button

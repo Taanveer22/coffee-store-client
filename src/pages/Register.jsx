@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
+  
   const { registerUser } = useContext(AuthContext);
 
   const handleRegisterForm = (e) => {
@@ -10,16 +12,35 @@ const Register = () => {
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(name, email, password);
+    // console.log(name, email, password);
 
     registerUser(email, password)
       .then((result) => {
         console.log(result.user);
+        const creationTime = result?.user?.metadata?.creationTime;
+        const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+
+        // save new user info to backend
+        const newUser = { name, email, creationTime, lastSignInTime };
+        // console.log(newUser);
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.insertedId) {
+              toast.success("user added to database successfully");
+            }
+          });
       })
       .catch((error) => {
         console.log(error);
       });
-      
   };
 
   return (
