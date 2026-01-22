@@ -4,6 +4,7 @@ import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
 import AddCoffee from "../pages/AddCoffee";
 import Users from "../pages/Users";
+import UpdateCoffee from "../pages/UpdateCoffee";
 
 const PublicRoutes = createBrowserRouter([
   {
@@ -19,6 +20,12 @@ const PublicRoutes = createBrowserRouter([
       {
         path: "/addCoffee",
         element: <AddCoffee></AddCoffee>,
+      },
+      {
+        path: "/updateCoffee/:id",
+        element: <UpdateCoffee></UpdateCoffee>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/coffees/${params.id}`),
       },
       {
         path: "/users",

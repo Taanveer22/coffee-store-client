@@ -53,8 +53,8 @@ const Card = ({ item }) => {
             <span className="font-semibold">Name:</span> {item?.name}
           </p>
           <p className="text-gray-800">
-            <span className="font-semibold">Supplier:</span>
-            {item?.supplier}
+            <span className="font-semibold">Quantity:</span>
+            {item?.quantity}
           </p>
         </div>
 
