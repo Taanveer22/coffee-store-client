@@ -26,7 +26,7 @@ const UpdateCoffee = () => {
     // console.log(updatedCoffee);
 
     // send updated coffee data to backend
-    fetch(`http://localhost:5000/coffees/${loadedOneCoffee._id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/${loadedOneCoffee._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -24,7 +24,7 @@ const AddCoffee = () => {
     // console.log(newCoffee);
 
     // ==== send create operation data to backend =====
-    fetch("http://localhost:5000/coffees", {
+    fetch(`${import.meta.env.VITE_API_URL}/coffees`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

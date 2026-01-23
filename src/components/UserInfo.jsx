@@ -13,7 +13,7 @@ const UserInfo = ({ element, handleRemoveFromUi }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

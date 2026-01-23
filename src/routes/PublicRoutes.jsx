@@ -18,7 +18,7 @@ const PublicRoutes = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/coffees"),
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/coffees`),
       },
       {
         path: "/addCoffee",
@@ -28,13 +28,13 @@ const PublicRoutes = createBrowserRouter([
         path: "/updateCoffee/:id",
         element: <UpdateCoffee></UpdateCoffee>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffees/${params.id}`),
+          fetch(`${import.meta.env.VITE_API_URL}/${params.id}`),
       },
       {
         path: "/detailsCoffee/:id",
         element: <DetailsCoffee></DetailsCoffee>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffees/${params.id}`),
+          fetch(`${import.meta.env.VITE_API_URL}/${params.id}`),
       },
       {
         path: "/signIn",
@@ -44,7 +44,7 @@ const PublicRoutes = createBrowserRouter([
       {
         path: "/users",
         element: <Users></Users>,
-        loader: () => fetch(`http://localhost:5000/users`),
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/users`),
       },
     ],
   },

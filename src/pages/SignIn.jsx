@@ -31,7 +31,7 @@ const SignIn = () => {
         // send data to backend
         const lastSignInTime = result?.user?.metadata?.lastSignInTime;
         const signInData = { email, lastSignInTime };
-        fetch(`http://localhost:5000/users`, {
+        fetch(`${import.meta.env.VITE_API_URL}/users`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",

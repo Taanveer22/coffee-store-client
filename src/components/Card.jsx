@@ -3,10 +3,8 @@ import Swal from "sweetalert2";
 
 const Card = ({ item, stateCoffees, setStateCoffees }) => {
   // console.log(item);
-
   const handleDeleteCoffee = (id) => {
     // console.log(id);
-    
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -18,7 +16,7 @@ const Card = ({ item, stateCoffees, setStateCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         //============ send delete operation data to backend============
-        fetch(`http://localhost:5000/coffees/${id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
