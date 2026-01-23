@@ -39,9 +39,8 @@ const Register = () => {
       if (data.insertedId) {
         toast.success("user added to db successfully");
       }
-
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
 
@@ -49,12 +48,16 @@ const Register = () => {
     <div className="flex justify-center items-center">
       <form onSubmit={handleRegisterForm}>
         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-
           <label className="label">Name</label>
           <input name="name" type="text" className="input" placeholder="Name" />
 
           <label className="label">Photo</label>
-          <input name="photo" type="text" className="input" placeholder="Photo Url" />
+          <input
+            name="photo"
+            type="text"
+            className="input"
+            placeholder="Photo Url"
+          />
 
           <label className="label">Email</label>
           <input

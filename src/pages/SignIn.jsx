@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const SignIn = () => {
-
   const { signInUser, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -23,10 +22,10 @@ const SignIn = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     // console.log(email, password);
-    
+
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         toast.success("user sign in successfully");
         navigate("/", { replace: true });
         // send data to backend
@@ -40,10 +39,15 @@ const SignIn = () => {
           body: JSON.stringify(signInData),
         })
           .then((res) => res.json())
-          .then((data) => console.log(data));
+          .then((data) => {
+            // console.log(data)
+            if (data.modifiedCount > 0) {
+              toast.success("sign is sucessfully done");
+            }
+          });
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   };
 
