@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import AllProducts from "../components/AllProducts";
 import Banner from "../components/Banner";
 import Marketing from "../components/Marketing";
+import FollowUs from "../components/FollowUs";
 
 const Home = () => {
   const loadedCoffees = useLoaderData();
@@ -13,8 +14,11 @@ const Home = () => {
       <section className="mb-6 lg:mb-12">
         <Marketing></Marketing>
       </section>
-      <section className="w-11/12 mx-auto">
+      <section className="w-11/12 mx-auto mb-6 lg:mb-12">
         <AllProducts loadedCoffees={loadedCoffees}></AllProducts>
+      </section>
+      <section className="w-11/12 mx-auto">
+        <FollowUs></FollowUs>
       </section>
     </div>
   );

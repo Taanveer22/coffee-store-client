@@ -1,6 +1,19 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+  const handleSignOutUser = () => {
+    signOutUser()
+      .then(() => {
+        toast.success("log out successful");
+      })
+      .catch(() => {
+        toast.error("failed to log out");
+      });
+  };
   const links = (
     <>
       <li>
@@ -54,7 +67,19 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user ? (
+            <div className="flex items-center gap-2">
+              <p>{user?.displayName || "Name Hidden"}</p>
+              <button
+                onClick={handleSignOutUser}
+                className="btn btn-xs btn-error"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/signIn" className="btn btn-xs btn-success">Login</Link>
+          )}
         </div>
       </div>
     </div>

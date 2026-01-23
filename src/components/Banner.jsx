@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import bannerPhoto from "../assets/more/3.png";
 const Banner = () => {
   return (
@@ -19,7 +20,9 @@ const Banner = () => {
               nostalgia back!! Your companion of every moment!!! Enjoy the
               beautiful moments and make them memorable.
             </p>
-            <button className="btn btn-warning cursive-font">Learn More</button>
+            <Link to="/users" className="btn btn-warning cursive-font">
+              Learn More
+            </Link>
           </div>
         </div>
       </div>

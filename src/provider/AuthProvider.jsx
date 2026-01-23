@@ -14,13 +14,17 @@
 import auth from "../firebase/firebase.config";
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 
 // 01
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 // 02
 const AuthProvider = ({ children }) => {
@@ -30,25 +34,40 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // 05
+  const provider = new GoogleAuthProvider();
+  const googleSignIn = () => {
+    return signInWithPopup(auth, provider);
+  };
   const registerUser = (email, password) => {
-    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signInUser = (email, password) => {
-    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const signOutUser = () => {
+    return signOut(auth);
+  };
+
+  //Update Profile (NO manual setUser)
+  const updateProfileData = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
   // 06
+  //  Observe auth state (Single source of truth)
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
 
     return () => {
-      unSubscribe();
+      unsubscribe();
     };
   }, []);
 
@@ -56,8 +75,11 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     loading,
+    googleSignIn,
     registerUser,
     signInUser,
+    signOutUser,
+    updateProfileData,
   };
 
   // 08

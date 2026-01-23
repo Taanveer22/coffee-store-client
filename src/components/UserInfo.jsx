@@ -35,13 +35,14 @@ const UserInfo = ({ element, handleRemoveFromUi }) => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table">
+      <table className="table table-xs">
         {/* head */}
         <thead>
           <tr className="flex flex-col lg:flex-row justify-around">
             <th>Name</th>
             <th>Email</th>
             <th>Creation Time</th>
+            <th>Last Signin Time</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -51,16 +52,14 @@ const UserInfo = ({ element, handleRemoveFromUi }) => {
             <td>{element?.name}</td>
             <td>{element?.email}</td>
             <td>{element?.creationTime}</td>
+            <td>{element?.lastSignInTime}</td>
             <td>
-              <div className="flex justify-center gap-2">
-                <button className="btn btn-xs btn-info">Edit</button>
-                <button
-                  onClick={() => handleDeleteUser(element._id)}
-                  className="btn btn-xs btn-error"
-                >
-                  Delete
-                </button>
-              </div>
+              <button
+                onClick={() => handleDeleteUser(element._id)}
+                className="btn btn-xs btn-error"
+              >
+                Delete
+              </button>
             </td>
           </tr>
         </tbody>
