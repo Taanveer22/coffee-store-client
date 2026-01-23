@@ -1,16 +1,23 @@
-# React + Vite
+# ☕ Coffee Store 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack MERN stack application for managing a coffee inventory. Users can perform complete CRUD operations—adding new coffee blends, updating details, viewing the collection, and deleting items—all through a responsive and modern interface.
 
-Currently, two official plugins are available:
+**🔗 [Live Deployment](https://coffee-store-crud-85303.web.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Key Features
 
-## React Compiler
+- **Full CRUD Functionality:** Create, Read, Update, and Delete coffee entries.
+- **Dynamic Routing:** Seamless navigation using React Router.
+- **Responsive UI:** Built with a mobile-first approach using Tailwind CSS.
+- **Backend API:** Custom Express.js REST API to handle data logic.
+- **Database Integration:** Persistent storage using MongoDB Atlas.
+- **Toast Notifications:** Real-time feedback on user actions (e.g., "Coffee Added Successfully").
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | React.js, Tailwind CSS, React Router |
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB |
+| **Authentication/Hosting** | Firebase |
