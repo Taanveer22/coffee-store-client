@@ -13,7 +13,7 @@ const UserInfo = ({ element, handleRemoveFromUi }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
+        fetch(`https://coffee-store-server-85303.onrender.com/users/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

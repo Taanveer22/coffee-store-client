@@ -16,7 +16,7 @@ const Card = ({ item, stateCoffees, setStateCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         //============ send delete operation data to backend============
-        fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
+        fetch(`https://coffee-store-server-85303.onrender.com/coffees/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

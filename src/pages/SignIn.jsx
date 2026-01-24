@@ -31,7 +31,7 @@ const SignIn = () => {
         // send data to backend
         const lastSignInTime = result?.user?.metadata?.lastSignInTime;
         const signInData = { email, lastSignInTime };
-        fetch(`${import.meta.env.VITE_API_URL}/users`, {
+        fetch(`https://coffee-store-server-85303.onrender.com/users`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",

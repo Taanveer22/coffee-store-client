@@ -27,13 +27,16 @@ const Register = () => {
 
       const newUser = { name, email, creationTime, lastSignInTime };
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        `https://coffee-store-server-85303.onrender.com/users`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
         },
-        body: JSON.stringify(newUser),
-      });
+      );
 
       const data = await res.json();
       if (data.insertedId) {

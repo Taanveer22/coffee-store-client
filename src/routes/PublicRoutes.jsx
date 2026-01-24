@@ -18,7 +18,8 @@ const PublicRoutes = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/coffees`),
+        loader: () =>
+          fetch(`https://coffee-store-server-85303.onrender.com/coffees`),
       },
       {
         path: "/addCoffee",
@@ -28,13 +29,17 @@ const PublicRoutes = createBrowserRouter([
         path: "/updateCoffee/:id",
         element: <UpdateCoffee></UpdateCoffee>,
         loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_API_URL}/${params.id}`),
+          fetch(
+            `https://coffee-store-server-85303.onrender.com/coffees/${params.id}`,
+          ),
       },
       {
         path: "/detailsCoffee/:id",
         element: <DetailsCoffee></DetailsCoffee>,
         loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_API_URL}/${params.id}`),
+          fetch(
+            `https://coffee-store-server-85303.onrender.com/coffees/${params.id}`,
+          ),
       },
       {
         path: "/signIn",
@@ -44,7 +49,8 @@ const PublicRoutes = createBrowserRouter([
       {
         path: "/users",
         element: <Users></Users>,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/users`),
+        loader: () =>
+          fetch(`https://coffee-store-server-85303.onrender.com/users`),
       },
     ],
   },

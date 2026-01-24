@@ -26,13 +26,16 @@ const UpdateCoffee = () => {
     // console.log(updatedCoffee);
 
     // send updated coffee data to backend
-    fetch(`${import.meta.env.VITE_API_URL}/${loadedOneCoffee._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
+    fetch(
+      `https://coffee-store-server-85303.onrender.com/coffees/${loadedOneCoffee._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedCoffee),
       },
-      body: JSON.stringify(updatedCoffee),
-    })
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -61,7 +64,9 @@ const UpdateCoffee = () => {
           <div className="flex items-center justify-between gap-6 my-4">
             <fieldset className="fieldset w-1/2">
               <legend className="fieldset-legend">Coffee Name</legend>
+              {/*  ✅ default value comes from loader data */}
               <input
+                defaultValue={loadedOneCoffee?.name}
                 name="name"
                 type="text"
                 className="input w-full"
@@ -71,6 +76,7 @@ const UpdateCoffee = () => {
             <fieldset className="fieldset w-1/2">
               <legend className="fieldset-legend">Quantity</legend>
               <input
+                defaultValue={loadedOneCoffee?.quantity}
                 name="quantity"
                 type="text"
                 className="input w-full"
@@ -83,6 +89,7 @@ const UpdateCoffee = () => {
             <fieldset className="fieldset w-1/2">
               <legend className="fieldset-legend">Supplier</legend>
               <input
+                defaultValue={loadedOneCoffee?.supplier}
                 name="supplier"
                 type="text"
                 className="input w-full"
@@ -92,6 +99,7 @@ const UpdateCoffee = () => {
             <fieldset className="fieldset w-1/2">
               <legend className="fieldset-legend">Taste</legend>
               <input
+                defaultValue={loadedOneCoffee?.taste}
                 name="taste"
                 type="text"
                 className="input w-full"
@@ -104,6 +112,7 @@ const UpdateCoffee = () => {
             <fieldset className="fieldset w-1/2">
               <legend className="fieldset-legend">Category</legend>
               <input
+                defaultValue={loadedOneCoffee?.category}
                 name="category"
                 type="text"
                 className="input w-full"
@@ -113,6 +122,7 @@ const UpdateCoffee = () => {
             <fieldset className="fieldset w-1/2">
               <legend className="fieldset-legend">Details</legend>
               <input
+                defaultValue={loadedOneCoffee?.details}
                 name="details"
                 type="text"
                 className="input w-full"
@@ -125,6 +135,7 @@ const UpdateCoffee = () => {
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Photo Url</legend>
               <input
+                defaultValue={loadedOneCoffee?.photo}
                 name="photo"
                 type="text"
                 className="input w-full"

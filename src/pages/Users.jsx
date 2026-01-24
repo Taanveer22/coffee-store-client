@@ -18,7 +18,7 @@ const Users = () => {
         Users Available : {stateUsers.length}
       </h1>
 
-      <div className="">
+      <div>
         {stateUsers.map((element) => (
           <UserInfo
             element={element}
